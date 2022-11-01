@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const path = require ('path');
 const PORT = process.env.PORT || 3000
 const app = express();
-const sessionRouter = require('./src/routers/sessionRouter')
+const sessionsRouter = require('./src/routers/sessionRouter')
 const adminRouter = require('./src/routers/adminRouter')
 
 app.use(morgan('combined'));
@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 
 
 
-app.use('/sessions', sessionRouter);
+app.use('/sessions', sessionsRouter);
 app.use('/admin', adminRouter);
 
 app.get('/',(req,res)=>{
