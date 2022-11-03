@@ -6,7 +6,8 @@ const sessions = require('../data/sessions.json');
 const adminRouter = express.Router();
 
 adminRouter.route('/').get((req, res)=>{
-    const url = 'mongodb+srv://MaxM2022:Iu6J0mYsnblIHg6g@globomantics.onjwqjm.mongodb.net/?retryWrites=true&w=majority';
+    const url = 
+        "mongodb+srv://MaxM2022:testpass@globomantics.st46ft5.mongodb.net/?retryWrites=true&w=majority";
     const dbName = 'globomantics';
     
 
@@ -14,7 +15,7 @@ adminRouter.route('/').get((req, res)=>{
         let client;
         try{
             client = await MongoClient.connect(url);
-            debug('connected to db');
+            console.log('connected to db');
 
             const db = client.db(dbName);
 
@@ -22,7 +23,7 @@ adminRouter.route('/').get((req, res)=>{
             res.json(response);
 
         }catch(error){
-            debug(error.stack);
+            console.log(error.stack);
         }
         client.close();
     })();
